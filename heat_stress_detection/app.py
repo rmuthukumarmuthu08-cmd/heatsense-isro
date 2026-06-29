@@ -82,15 +82,13 @@ st.markdown("""
 # CLOUD STARTUP — Generate data + models if missing (first run)
 # ============================================================
 
-@st.cache_resource(show_spinner="Initialising HeatSense for first run (~15 sec)...")
 def _cloud_startup():
     """
     Generate all required data files and trained models on first run.
     On Streamlit Cloud (or any cold start), data/ and models/ are empty.
-    This runs once and is cached for the session lifetime.
+    Errors are caught and stored — never crash the app on startup.
     """
-    import os
-    import sys
+    import os, sys, traceback
 
     demo_csv   = os.path.join(PROJECT_ROOT, "data", "demo", "delhi_heat_stress.csv")
     rf_model   = os.path.join(PROJECT_ROOT, "models", "heat_stress_rf.pkl")
@@ -101,44 +99,48 @@ def _cloud_startup():
     needs_zones  = not os.path.exists(zones_csv)
 
     if not (needs_data or needs_model or needs_zones):
-        return True  # All present
+        return None  # All present — nothing to do
 
-    os.makedirs(os.path.join(PROJECT_ROOT, "data", "demo"), exist_ok=True)
-    os.makedirs(os.path.join(PROJECT_ROOT, "models"), exist_ok=True)
+    try:
+        os.makedirs(os.path.join(PROJECT_ROOT, "data", "demo"), exist_ok=True)
+        os.makedirs(os.path.join(PROJECT_ROOT, "models"), exist_ok=True)
 
-    sys.path.insert(0, os.path.join(PROJECT_ROOT, "src"))
+        sys.path.insert(0, PROJECT_ROOT)
 
-    if needs_data or needs_zones:
-        from src.preprocessing import generate_delhi_demo_data
-        from src.hotspot_detector import run_full_hotspot_pipeline
-        import json
+        if needs_data or needs_zones:
+            from src.preprocessing import generate_delhi_demo_data
+            from src.hotspot_detector import run_full_hotspot_pipeline
+            import json
 
-        df = generate_delhi_demo_data(n_points=8000, random_state=42)
-        df.to_csv(demo_csv, index=False)
+            df = generate_delhi_demo_data(n_points=8000, random_state=42)
+            df.to_csv(demo_csv, index=False)
 
-        _, zones, geojson = run_full_hotspot_pipeline(df)
-        zones.to_csv(zones_csv, index=False)
-        geojson_path = os.path.join(PROJECT_ROOT, "data", "demo", "hotspot_zones.geojson")
-        with open(geojson_path, "w") as f:
-            json.dump(geojson, f)
+            _, zones, geojson = run_full_hotspot_pipeline(df)
+            zones.to_csv(zones_csv, index=False)
+            geojson_path = os.path.join(PROJECT_ROOT, "data", "demo", "hotspot_zones.geojson")
+            with open(geojson_path, "w") as f:
+                json.dump(geojson, f)
 
-    if needs_model:
-        import json, pandas as pd
-        df = pd.read_csv(demo_csv)
-        from src.ml_model import train_full_pipeline
-        results = train_full_pipeline(df)   # saves rf + gb models automatically
-        results["shap_df"].to_csv(
-            os.path.join(PROJECT_ROOT, "data", "demo", "shap_values.csv"), index=False
-        )
-        combined_metrics = {"rf": results["rf_metrics"], "gb": results["gb_metrics"]}
-        with open(os.path.join(PROJECT_ROOT, "data", "demo", "model_metrics.json"), "w") as f:
-            json.dump(combined_metrics, f, indent=2)
+        if needs_model:
+            import json, pandas as pd
+            df = pd.read_csv(demo_csv)
+            from src.ml_model import train_full_pipeline
+            results = train_full_pipeline(df)   # saves rf + gb models automatically
+            results["shap_df"].to_csv(
+                os.path.join(PROJECT_ROOT, "data", "demo", "shap_values.csv"), index=False
+            )
+            combined_metrics = {"rf": results["rf_metrics"], "gb": results["gb_metrics"]}
+            with open(os.path.join(PROJECT_ROOT, "data", "demo", "model_metrics.json"), "w") as f:
+                json.dump(combined_metrics, f, indent=2)
 
-    return True
+        return None  # success
+
+    except Exception:
+        return traceback.format_exc()   # return error string — never re-raise
 
 
-# Trigger startup check immediately (runs once, cached)
-_cloud_startup()
+# Trigger startup; store any error for display in UI
+_STARTUP_ERROR = _cloud_startup()
 
 
 # ============================================================
@@ -1370,6 +1372,12 @@ def page_about():
 # ============================================================
 
 def main():
+    # Show startup error prominently if data generation failed
+    if _STARTUP_ERROR:
+        st.error("⚠️ **Startup initialisation failed.** The app could not generate required data files.")
+        st.code(_STARTUP_ERROR, language="python")
+        st.stop()
+
     # Initialise session state
     if "selected_city" not in st.session_state:
         st.session_state["selected_city"] = "Delhi"
