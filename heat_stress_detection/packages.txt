@@ -1,5 +1,1 @@
-libgdal-dev
-gdal-bin
-libspatialindex-dev
-libgeos-dev
-libproj-dev
+# No system packages needed — all pure Python wheels
