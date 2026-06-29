@@ -1,0 +1,17 @@
+{
+  "rf_r2": 0.9887,
+  "rf_rmse": 0.0122,
+  "rf_mae": 0.0089,
+  "rf_cv_r2": 0.9945,
+  "gb_accuracy": 1.0,
+  "feature_importances": {
+    "LST": 0.8221,
+    "NDVI": 0.0092,
+    "NDBI": 0.079,
+    "NDWI": 0.0003,
+    "pop_density": 0.0757,
+    "dist_water": 0.0005,
+    "elevation": 0.0003,
+    "imperv_fraction": 0.0129
+  }
+}
