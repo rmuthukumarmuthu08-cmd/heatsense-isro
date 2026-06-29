@@ -123,15 +123,16 @@ def _cloud_startup():
             json.dump(geojson, f)
 
     if needs_model:
-        import pandas as pd
+        import json, pandas as pd
         df = pd.read_csv(demo_csv)
-        from src.ml_model import train_models, save_models
-        models, metrics, shap_df = train_models(df)
-        save_models(models, os.path.join(PROJECT_ROOT, "models"))
-        import json
-        shap_df.to_csv(os.path.join(PROJECT_ROOT, "data", "demo", "shap_values.csv"), index=False)
+        from src.ml_model import train_full_pipeline
+        results = train_full_pipeline(df)   # saves rf + gb models automatically
+        results["shap_df"].to_csv(
+            os.path.join(PROJECT_ROOT, "data", "demo", "shap_values.csv"), index=False
+        )
+        combined_metrics = {"rf": results["rf_metrics"], "gb": results["gb_metrics"]}
         with open(os.path.join(PROJECT_ROOT, "data", "demo", "model_metrics.json"), "w") as f:
-            json.dump(metrics, f, indent=2)
+            json.dump(combined_metrics, f, indent=2)
 
     return True
 
