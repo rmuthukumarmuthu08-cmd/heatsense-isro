@@ -1,0 +1,425 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2798,
+          28.6811
+        ]
+      },
+      "properties": {
+        "rank": 1,
+        "zone_name": "Shahdara",
+        "mean_LST": 47.0885,
+        "max_LST": 51.84,
+        "severity_label": "High",
+        "hotspot_score": 0.6387,
+        "area_km2": 0.02,
+        "total_population": 887636,
+        "n_pixels": 26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2794,
+          28.5595
+        ]
+      },
+      "properties": {
+        "rank": 2,
+        "zone_name": "Okhla Industrial Estate",
+        "mean_LST": 47.9263,
+        "max_LST": 51.58,
+        "severity_label": "High",
+        "hotspot_score": 0.6367,
+        "area_km2": 0.02,
+        "total_population": 731118,
+        "n_pixels": 24
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1318,
+          28.7378
+        ]
+      },
+      "properties": {
+        "rank": 3,
+        "zone_name": "Rohini",
+        "mean_LST": 47.691,
+        "max_LST": 52.63,
+        "severity_label": "High",
+        "hotspot_score": 0.6351,
+        "area_km2": 0.03,
+        "total_population": 880885,
+        "n_pixels": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2835,
+          28.6474
+        ]
+      },
+      "properties": {
+        "rank": 4,
+        "zone_name": "Mayur Vihar",
+        "mean_LST": 47.9839,
+        "max_LST": 52.85,
+        "severity_label": "High",
+        "hotspot_score": 0.6301,
+        "area_km2": 0.03,
+        "total_population": 729044,
+        "n_pixels": 28
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1005,
+          28.7092
+        ]
+      },
+      "properties": {
+        "rank": 5,
+        "zone_name": "Rohini",
+        "mean_LST": 46.5907,
+        "max_LST": 52.79,
+        "severity_label": "High",
+        "hotspot_score": 0.629,
+        "area_km2": 0.01,
+        "total_population": 561497,
+        "n_pixels": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3081,
+          28.6487
+        ]
+      },
+      "properties": {
+        "rank": 6,
+        "zone_name": "Mayur Vihar",
+        "mean_LST": 48.0278,
+        "max_LST": 53.0,
+        "severity_label": "High",
+        "hotspot_score": 0.6288,
+        "area_km2": 0.03,
+        "total_population": 785365,
+        "n_pixels": 32
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3079,
+          28.6191
+        ]
+      },
+      "properties": {
+        "rank": 7,
+        "zone_name": "Mayur Vihar",
+        "mean_LST": 48.1329,
+        "max_LST": 52.27,
+        "severity_label": "High",
+        "hotspot_score": 0.6249,
+        "area_km2": 0.03,
+        "total_population": 802630,
+        "n_pixels": 35
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1315,
+          28.7706
+        ]
+      },
+      "properties": {
+        "rank": 8,
+        "zone_name": "Outer Ring Road \u2013 North",
+        "mean_LST": 47.0063,
+        "max_LST": 53.0,
+        "severity_label": "High",
+        "hotspot_score": 0.6141,
+        "area_km2": 0.03,
+        "total_population": 780298,
+        "n_pixels": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3109,
+          28.6812
+        ]
+      },
+      "properties": {
+        "rank": 9,
+        "zone_name": "Shahdara",
+        "mean_LST": 46.5616,
+        "max_LST": 50.69,
+        "severity_label": "High",
+        "hotspot_score": 0.6122,
+        "area_km2": 0.03,
+        "total_population": 905681,
+        "n_pixels": 31
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.278,
+          28.5287
+        ]
+      },
+      "properties": {
+        "rank": 10,
+        "zone_name": "Okhla Industrial Estate",
+        "mean_LST": 46.6536,
+        "max_LST": 51.81,
+        "severity_label": "High",
+        "hotspot_score": 0.6098,
+        "area_km2": 0.03,
+        "total_population": 856584,
+        "n_pixels": 28
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.28,
+          28.6175
+        ]
+      },
+      "properties": {
+        "rank": 11,
+        "zone_name": "Mayur Vihar",
+        "mean_LST": 46.7019,
+        "max_LST": 53.0,
+        "severity_label": "High",
+        "hotspot_score": 0.6082,
+        "area_km2": 0.02,
+        "total_population": 718858,
+        "n_pixels": 26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1278,
+          28.7092
+        ]
+      },
+      "properties": {
+        "rank": 12,
+        "zone_name": "Rohini",
+        "mean_LST": 46.5241,
+        "max_LST": 51.3,
+        "severity_label": "High",
+        "hotspot_score": 0.602,
+        "area_km2": 0.02,
+        "total_population": 651110,
+        "n_pixels": 22
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1614,
+          28.7675
+        ]
+      },
+      "properties": {
+        "rank": 13,
+        "zone_name": "Outer Ring Road \u2013 North",
+        "mean_LST": 47.6057,
+        "max_LST": 51.61,
+        "severity_label": "High",
+        "hotspot_score": 0.6006,
+        "area_km2": 0.03,
+        "total_population": 579883,
+        "n_pixels": 28
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2508,
+          28.5602
+        ]
+      },
+      "properties": {
+        "rank": 14,
+        "zone_name": "Okhla Industrial Estate",
+        "mean_LST": 46.3241,
+        "max_LST": 52.04,
+        "severity_label": "High",
+        "hotspot_score": 0.5953,
+        "area_km2": 0.03,
+        "total_population": 847610,
+        "n_pixels": 29
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2789,
+          28.5905
+        ]
+      },
+      "properties": {
+        "rank": 15,
+        "zone_name": "Okhla Industrial Estate",
+        "mean_LST": 45.8292,
+        "max_LST": 49.0,
+        "severity_label": "High",
+        "hotspot_score": 0.5933,
+        "area_km2": 0.02,
+        "total_population": 723957,
+        "n_pixels": 26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.0971,
+          28.7397
+        ]
+      },
+      "properties": {
+        "rank": 16,
+        "zone_name": "Rohini",
+        "mean_LST": 46.0707,
+        "max_LST": 52.78,
+        "severity_label": "High",
+        "hotspot_score": 0.5924,
+        "area_km2": 0.03,
+        "total_population": 819965,
+        "n_pixels": 28
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1612,
+          28.7403
+        ]
+      },
+      "properties": {
+        "rank": 17,
+        "zone_name": "Outer Ring Road \u2013 North",
+        "mean_LST": 46.7952,
+        "max_LST": 52.11,
+        "severity_label": "High",
+        "hotspot_score": 0.5904,
+        "area_km2": 0.02,
+        "total_population": 650910,
+        "n_pixels": 27
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.0952,
+          28.8777
+        ]
+      },
+      "properties": {
+        "rank": 18,
+        "zone_name": "Narela Industrial Area",
+        "mean_LST": 45.6837,
+        "max_LST": 50.47,
+        "severity_label": "High",
+        "hotspot_score": 0.5878,
+        "area_km2": 0.01,
+        "total_population": 252408,
+        "n_pixels": 8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1001,
+          28.8604
+        ]
+      },
+      "properties": {
+        "rank": 19,
+        "zone_name": "Narela Industrial Area",
+        "mean_LST": 45.0677,
+        "max_LST": 49.65,
+        "severity_label": "High",
+        "hotspot_score": 0.584,
+        "area_km2": 0.02,
+        "total_population": 898400,
+        "n_pixels": 26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2507,
+          28.5296
+        ]
+      },
+      "properties": {
+        "rank": 20,
+        "zone_name": "Okhla Industrial Estate",
+        "mean_LST": 46.4542,
+        "max_LST": 50.32,
+        "severity_label": "High",
+        "hotspot_score": 0.5822,
+        "area_km2": 0.03,
+        "total_population": 989243,
+        "n_pixels": 36
+      }
+    }
+  ]
+}
