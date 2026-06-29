@@ -110,20 +110,17 @@ def _cloud_startup():
 
     if needs_data or needs_zones:
         from src.preprocessing import generate_delhi_demo_data
-        from src.hotspot_detector import (
-            compute_gi_star, cluster_hotspots, rank_hotspot_zones, hotspot_zones_to_geojson
-        )
+        from src.hotspot_detector import run_full_hotspot_pipeline
         import json
 
         df = generate_delhi_demo_data(n_points=8000, random_state=42)
         df.to_csv(demo_csv, index=False)
 
-        df = compute_gi_star(df)
-        df = cluster_hotspots(df)
-        zones = rank_hotspot_zones(df)
+        _, zones, geojson = run_full_hotspot_pipeline(df)
         zones.to_csv(zones_csv, index=False)
         geojson_path = os.path.join(PROJECT_ROOT, "data", "demo", "hotspot_zones.geojson")
-        hotspot_zones_to_geojson(zones, geojson_path)
+        with open(geojson_path, "w") as f:
+            json.dump(geojson, f)
 
     if needs_model:
         import pandas as pd
