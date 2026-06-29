@@ -1,0 +1,9 @@
+feature,mean_abs_shap
+LST,0.074
+NDBI,0.02136
+pop_density,0.02028
+imperv_fraction,0.00621
+NDVI,0.00584
+dist_water,0.00034
+elevation,0.00012
+NDWI,6e-05
